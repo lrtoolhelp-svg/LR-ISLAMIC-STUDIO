@@ -1,1 +1,182 @@
 
+"use strict";
+
+/* =========================================================
+   LR ISLAMIC STUDIO V1
+   FREE / API-FREE VERSION
+========================================================= */
+
+const state = {
+  contentType: "quran",
+  topic: "",
+  language: "hi",
+  format: "reel",
+  style: "geometric",
+  duration: 30,
+  currentStep: 1,
+  generatedScript: "",
+  scenes: [],
+  isPlaying: false,
+  playTimer: null,
+  playProgress: 0
+};
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const $ = selector =>
+  document.querySelector(selector);
+
+const $$ = selector =>
+  document.querySelectorAll(selector);
+
+function sleep(ms) {
+  return new Promise(resolve =>
+    setTimeout(resolve, ms)
+  );
+}
+
+function toast(message) {
+
+  const el = $("#toast");
+
+  if (!el) {
+    alert(message);
+    return;
+  }
+
+  el.textContent = message;
+  el.classList.add("show");
+
+  setTimeout(() => {
+    el.classList.remove("show");
+  }, 2500);
+}
+
+
+/* =========================================================
+   TOPIC DATABASE
+========================================================= */
+
+const TOPICS = {
+
+  quran: [
+    "Surah Al-Fatiha",
+    "Surah Al-Ikhlas",
+    "Surah Al-Falaq",
+    "Surah An-Nas"
+  ],
+
+  nabi: [
+    "Prophet Muhammad ﷺ",
+    "Prophet Musa عليه السلام",
+    "Prophet Ibrahim عليه السلام",
+    "Prophet Yusuf عليه السلام"
+  ],
+
+  sahabi: [
+    "Abu Bakr رضي الله عنه",
+    "Umar ibn Al-Khattab رضي الله عنه",
+    "Uthman ibn Affan رضي الله عنه",
+    "Ali ibn Abi Talib رضي الله عنه"
+  ],
+
+  hadith: [
+    "Hadith about intentions",
+    "Hadith about patience",
+    "Hadith about kindness",
+    "Hadith about good character"
+  ]
+
+};
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  setupSelections();
+  setupTopicChips();
+  setupButtons();
+
+  updateTopicChips();
+  updateUI();
+
+});
+
+
+/* =========================================================
+   STEP NAVIGATION
+========================================================= */
+
+function goToStep(step) {
+
+  state.currentStep = step;
+
+  $$(".step-panel").forEach(panel => {
+    panel.classList.remove("active");
+  });
+
+  const target =
+    document.getElementById(`step${step}`);
+
+  if (target) {
+    target.classList.add("active");
+  }
+
+  $$(".step-item").forEach(item => {
+
+    const itemStep =
+      Number(item.dataset.step);
+
+    item.classList.toggle(
+      "active",
+      itemStep === step
+    );
+
+    item.classList.toggle(
+      "done",
+      itemStep < step
+    );
+
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================================================
+   SELECTIONS
+========================================================= */
+
+function setupSelections() {
+
+  $$("[data-content]").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+      state.contentType =
+        card.dataset.content;
+
+      $$("[data-content]").forEach(item => {
+        item.classList.remove("selected");
+      });
+
+      card.classList.add("selected");
+
+      updateTopicChips();
+
+    });
+
+  });
+
+
+  $$("[data-language]").forEach(button => {
