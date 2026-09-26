@@ -1,1 +1,832 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>LR Islamic Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="top-header">
+
+    <div class="brand">
+      <div class="brand-logo">✦</div>
+
+      <div>
+        <h1>LR Islamic Studio</h1>
+        <span>AI Islamic Video Creator</span>
+      </div>
+    </div>
+
+    <div class="header-badge">
+      V1
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       STEP NAVIGATION
+  ====================================================== -->
+
+  <nav class="step-navigation">
+
+    <div class="step-item active" data-step="1">
+      <span>1</span>
+      <small>विषय</small>
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step-item" data-step="2">
+      <span>2</span>
+      <small>शैली</small>
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step-item" data-step="3">
+      <span>3</span>
+      <small>जेनरेट</small>
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step-item" data-step="4">
+      <span>4</span>
+      <small>डाउनलोड</small>
+    </div>
+
+  </nav>
+
+
+  <main>
+
+
+    <!-- ===================================================
+         STEP 1
+    ==================================================== -->
+
+    <section id="step1" class="step-panel active">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          STEP 01
+        </span>
+
+        <h2>
+          अपना Islamic Topic चुनें
+        </h2>
+
+        <p>
+          Quran, Nabi, Sahabi या Hadith से शुरुआत करें।
+        </p>
+
+      </div>
+
+
+      <!-- CONTENT TYPE -->
+
+      <div class="content-type-grid">
+
+        <button
+          class="content-card selected"
+          data-content="quran"
+          type="button">
+
+          <span class="content-icon">☪</span>
+
+          <strong>Quran / Surah</strong>
+
+          <small>
+            Quran और Surah topics
+          </small>
+
+        </button>
+
+
+        <button
+          class="content-card"
+          data-content="nabi"
+          type="button">
+
+          <span class="content-icon">☾</span>
+
+          <strong>Nabi Biography</strong>
+
+          <small>
+            Prophets की biography
+          </small>
+
+        </button>
+
+
+        <button
+          class="content-card"
+          data-content="sahabi"
+          type="button">
+
+          <span class="content-icon">✦</span>
+
+          <strong>Sahabi Biography</strong>
+
+          <small>
+            Sahaba की biography
+          </small>
+
+        </button>
+
+
+        <button
+          class="content-card"
+          data-content="hadith"
+          type="button">
+
+          <span class="content-icon">📖</span>
+
+          <strong>Hadith</strong>
+
+          <small>
+            Hadith based videos
+          </small>
+
+        </button>
+
+      </div>
+
+
+      <!-- TOPIC -->
+
+      <div class="input-section">
+
+        <label for="topicInput">
+          आपका Topic
+        </label>
+
+        <textarea
+          id="topicInput"
+          rows="4"
+          placeholder="Example: Surah Al-Fatiha..."
+        ></textarea>
+
+        <div
+          id="topicChips"
+          class="topic-chips">
+        </div>
+
+      </div>
+
+
+      <!-- LANGUAGE -->
+
+      <div class="option-section">
+
+        <label>
+          Language
+        </label>
+
+        <div class="language-row">
+
+          <button
+            class="language-btn selected"
+            data-language="hi"
+            type="button">
+            हिंदी
+          </button>
+
+          <button
+            class="language-btn"
+            data-language="ur"
+            type="button">
+            اردو
+          </button>
+
+          <button
+            class="language-btn"
+            data-language="en"
+            type="button">
+            English
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="nextToStyle"
+        class="primary-btn"
+        type="button">
+
+        आगे बढ़ें
+        <span>→</span>
+
+      </button>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         STEP 2
+    ==================================================== -->
+
+    <section id="step2" class="step-panel">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          STEP 02
+        </span>
+
+        <h2>
+          Video Style चुनें
+        </h2>
+
+        <p>
+          अपने video का format और visual style चुनें।
+        </p>
+
+      </div>
+
+
+      <!-- FORMAT -->
+
+      <div class="option-section">
+
+        <label>
+          Video Format
+        </label>
+
+        <div class="format-grid">
+
+          <button
+            class="format-card selected"
+            data-format="reel"
+            type="button">
+
+            <div class="format-preview vertical">
+              9:16
+            </div>
+
+            <strong>
+              Reel / Shorts
+            </strong>
+
+            <small>
+              1080 × 1920
+            </small>
+
+          </button>
+
+
+          <button
+            class="format-card"
+            data-format="youtube"
+            type="button">
+
+            <div class="format-preview horizontal">
+              16:9
+            </div>
+
+            <strong>
+              YouTube
+            </strong>
+
+            <small>
+              1920 × 1080
+            </small>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- VISUAL STYLE -->
+
+      <div class="option-section">
+
+        <label>
+          Visual Style
+        </label>
+
+        <div class="style-grid">
+
+          <button
+            class="style-card selected"
+            data-style="geometric"
+            type="button">
+
+            <span>✦</span>
+            <strong>Geometric</strong>
+
+          </button>
+
+
+          <button
+            class="style-card"
+            data-style="arabesque"
+            type="button">
+
+            <span>❈</span>
+            <strong>Arabesque</strong>
+
+          </button>
+
+
+          <button
+            class="style-card"
+            data-style="calligraphy"
+            type="button">
+
+            <span>﷽</span>
+            <strong>Calligraphy</strong>
+
+          </button>
+
+
+          <button
+            class="style-card"
+            data-style="minimal"
+            type="button">
+
+            <span>☾</span>
+            <strong>Minimal</strong>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- DURATION -->
+
+      <div class="option-section">
+
+        <label>
+          Duration
+        </label>
+
+        <div class="duration-row">
+
+          <button
+            class="duration-btn selected"
+            data-duration="30"
+            type="button">
+            30 sec
+          </button>
+
+          <button
+            class="duration-btn"
+            data-duration="60"
+            type="button">
+            1 min
+          </button>
+
+          <button
+            class="duration-btn"
+            data-duration="180"
+            type="button">
+            3 min
+          </button>
+
+          <button
+            class="duration-btn"
+            data-duration="600"
+            type="button">
+            10 min
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="button-row">
+
+        <button
+          id="backToTopic"
+          class="secondary-btn"
+          type="button">
+
+          ← वापस
+
+        </button>
+
+        <button
+          id="generateBtn"
+          class="primary-btn"
+          type="button">
+
+          ✦ Generate
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         STEP 3
+    ==================================================== -->
+
+    <section id="step3" class="step-panel">
+
+      <div class="generation-container">
+
+        <div class="mandala">
+
+          <div class="mandala-inner">
+            ✦
+          </div>
+
+        </div>
+
+
+        <span class="eyebrow">
+          LR ISLAMIC STUDIO
+        </span>
+
+        <h2>
+          आपका Video तैयार हो रहा है
+        </h2>
+
+        <p class="generation-description">
+          कृपया थोड़ी देर प्रतीक्षा करें...
+        </p>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-wrapper">
+
+          <div class="progress-info">
+
+            <span>
+              Generation Progress
+            </span>
+
+            <strong id="progressPercent">
+              0%
+            </strong>
+
+          </div>
+
+          <div class="progress-track">
+
+            <div
+              id="progressBar"
+              class="progress-bar">
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- GENERATION STEPS -->
+
+        <div class="generation-list">
+
+          <div class="generation-step active">
+
+            <span>01</span>
+
+            <div>
+              <strong>
+                स्क्रिप्ट तैयार हो रही है
+              </strong>
+
+              <small>
+                Topic structure
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="generation-step">
+
+            <span>02</span>
+
+            <div>
+              <strong>
+                Islamic visuals तैयार हो रहे हैं
+              </strong>
+
+              <small>
+                Patterns & landscapes
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="generation-step">
+
+            <span>03</span>
+
+            <div>
+              <strong>
+                Typography सेट हो रही है
+              </strong>
+
+              <small>
+                Arabic / Islamic design
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="generation-step">
+
+            <span>04</span>
+
+            <div>
+              <strong>
+                Subtitle timing
+              </strong>
+
+              <small>
+                Scene synchronization
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="generation-step">
+
+            <span>05</span>
+
+            <div>
+              <strong>
+                Video preview तैयार हो रहा है
+              </strong>
+
+              <small>
+                Browser rendering
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         STEP 4
+    ==================================================== -->
+
+    <section id="step4" class="step-panel">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          STEP 04
+        </span>
+
+        <h2>
+          आपका Video तैयार है
+        </h2>
+
+        <p>
+          Preview करें और अपने files export करें।
+        </p>
+
+      </div>
+
+
+      <!-- PREVIEW -->
+
+      <div class="preview-wrapper">
+
+        <div
+          id="videoPreview"
+          class="video-preview">
+
+          <div class="preview-placeholder">
+            Preview
+          </div>
+
+        </div>
+
+
+        <div class="preview-controls">
+
+          <button
+            id="playPreview"
+            class="play-btn"
+            type="button">
+
+            ▶
+
+          </button>
+
+
+          <div class="timeline">
+
+            <div
+              id="previewProgress"
+              class="timeline-progress">
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SCRIPT -->
+
+      <div class="script-section">
+
+        <div class="section-heading small">
+
+          <span class="eyebrow">
+            GENERATED SCRIPT
+          </span>
+
+          <h3>
+            Video Script
+          </h3>
+
+        </div>
+
+
+        <div class="script-box">
+
+          <textarea
+            id="generatedScript"
+            readonly></textarea>
+
+        </div>
+
+
+        <button
+          id="copyScript"
+          class="secondary-btn full"
+          type="button">
+
+          📋 Copy Script
+
+        </button>
+
+      </div>
+
+
+      <!-- EXPORT -->
+
+      <div class="export-section">
+
+        <div class="section-heading small">
+
+          <span class="eyebrow">
+            EXPORT
+          </span>
+
+          <h3>
+            Download
+          </h3>
+
+        </div>
+
+
+        <div class="export-grid">
+
+          <button
+            id="downloadVideo"
+            class="export-card"
+            type="button">
+
+            <span>🎬</span>
+
+            <strong>
+              Video
+            </strong>
+
+            <small>
+              WebM
+            </small>
+
+          </button>
+
+
+          <button
+            id="downloadThumbnail"
+            class="export-card"
+            type="button">
+
+            <span>🖼️</span>
+
+            <strong>
+              Thumbnail
+            </strong>
+
+            <small>
+              PNG
+            </small>
+
+          </button>
+
+
+          <button
+            id="downloadScript"
+            class="export-card"
+            type="button">
+
+            <span>📄</span>
+
+            <strong>
+              Script
+            </strong>
+
+            <small>
+              TXT
+            </small>
+
+          </button>
+
+
+          <button
+            id="downloadSRT"
+            class="export-card"
+            type="button">
+
+            <span>💬</span>
+
+            <strong>
+              Captions
+            </strong>
+
+            <small>
+              SRT
+            </small>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="newVideo"
+        class="primary-btn full"
+        type="button">
+
+        ＋ Create New Video
+
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
+
+  <div
+    id="toast"
+    class="toast">
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
